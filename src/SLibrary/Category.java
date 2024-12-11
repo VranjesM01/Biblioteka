@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,8 @@ public class Category extends javax.swing.JFrame {
      */
     public Category() {
         initComponents();
+        Connect();
+    
     }
     
     Connection con;
@@ -83,9 +86,14 @@ public class Category extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Status");
 
-        txtcategory.setText("jTextField1");
+        txtstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "DeActive" }));
 
         jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Update");
 
@@ -192,6 +200,43 @@ public class Category extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        String category = txtcategory.getText();
+        String status = txtstatus.getSelectedItem().toString();
+        
+        try {
+            pst = con.prepareStatement("insert into Category(catname, status)values(?,?)");
+            pst.setString(1,category);
+            pst.setString(2, status);
+            int k = pst.executeUpdate();
+            
+            
+            if(k==1){
+            
+                JOptionPane.showMessageDialog(this,"Category Created");
+                
+                txtcategory.setText("");
+                txtstatus.setSelectedIndex(-1);
+                txtcategory.requestFocus();
+
+                
+                
+            }
+            else
+            {
+              JOptionPane.showMessageDialog(this,"Error");
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
