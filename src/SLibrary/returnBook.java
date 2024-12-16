@@ -74,7 +74,7 @@ public class returnBook extends javax.swing.JFrame {
         int c;
 
         try {
-            pst = con.prepareStatement("select l.id,m.name,b.name,l.issuedate,l.returndate from lendbook l JOIN member m ON l.memberid=m.id JOIN book b ON l.bookid=b.id");
+            pst = con.prepareStatement("select * returnbook");
             rs = pst.executeQuery();
             
             ResultSetMetaData rsd = rs.getMetaData();
@@ -120,7 +120,7 @@ public class returnBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        txtmname = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -133,33 +133,33 @@ public class returnBook extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtmname = new javax.swing.JLabel();
-        txtbook = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        txtmembername = new javax.swing.JLabel();
+        txtbook = new javax.swing.JLabel();
         txtelp = new javax.swing.JTextField();
         txtfine = new javax.swing.JTextField();
-        txtrdate = new com.toedter.calendar.JDateChooser();
+        txtrdate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtmname.setBackground(new java.awt.Color(0, 102, 102));
+        txtmname.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Return Book");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 50, -1, -1));
+        txtmname.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Member ID");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 175, -1, -1));
+        txtmname.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 175, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Member Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+        txtmname.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
         txtmid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class returnBook extends javax.swing.JFrame {
                 txtmidKeyPressed(evt);
             }
         });
-        jPanel1.add(txtmid, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 174, 238, -1));
+        txtmname.add(txtmid, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 174, 238, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Add");
@@ -180,7 +180,7 @@ public class returnBook extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 50));
+        txtmname.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 50));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Update");
@@ -189,7 +189,7 @@ public class returnBook extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 130, 50));
+        txtmname.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 130, 50));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
@@ -198,7 +198,7 @@ public class returnBook extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 130, 50));
+        txtmname.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 130, 50));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Delete");
@@ -207,7 +207,7 @@ public class returnBook extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 130, 50));
+        txtmname.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 130, 50));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -233,44 +233,48 @@ public class returnBook extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 850, 610));
+        txtmname.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 850, 610));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 0));
         jLabel5.setText("Book");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+        txtmname.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 0));
         jLabel7.setText("Fine");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, 40));
-
-        txtmname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtmname.setForeground(new java.awt.Color(255, 255, 255));
-        txtmname.setText("jLabel4");
-        jPanel1.add(txtmname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 240, -1));
-
-        txtbook.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtbook.setForeground(new java.awt.Color(255, 255, 255));
-        txtbook.setText("jLabel8");
-        jPanel1.add(txtbook, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 240, -1));
+        txtmname.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, 40));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("Return Date");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 40));
+        txtmname.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 40));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 0));
         jLabel10.setText("Days Elapsed");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, 40));
+        txtmname.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, 40));
+
+        txtmembername.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtmembername.setForeground(new java.awt.Color(255, 255, 255));
+        txtmembername.setText("jLabel4");
+        txtmname.add(txtmembername, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 240, -1));
+
+        txtbook.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtbook.setForeground(new java.awt.Color(255, 255, 255));
+        txtbook.setText("jLabel6");
+        txtmname.add(txtbook, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, -1));
 
         txtelp.setText("jTextField1");
-        jPanel1.add(txtelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
+        txtmname.add(txtelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
 
-        txtfine.setText("jTextField1");
-        jPanel1.add(txtfine, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 240, -1));
-        jPanel1.add(txtrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 240, -1));
+        txtfine.setText("jTextField2");
+        txtmname.add(txtfine, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 240, -1));
+
+        txtrdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtrdate.setForeground(new java.awt.Color(255, 255, 255));
+        txtrdate.setText("jLabel4");
+        txtmname.add(txtrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -278,14 +282,14 @@ public class returnBook extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1312, Short.MAX_VALUE)
+                .addComponent(txtmname, javax.swing.GroupLayout.DEFAULT_SIZE, 1312, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtmname, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -298,11 +302,11 @@ public class returnBook extends javax.swing.JFrame {
         
  
         String mid = txtmid.getText();
-        String membername = txtmname.getText();
+        String membername = txtmembername.getText();
         String bookname = txtbook.getText();
-        String returndate = txtrdate.getDateFormatString();
-       String elpdays = txtelp.getText();
-       String fine = txtfine.getText();
+        String returndate = txtrdate.getText();
+        String elpdays = txtelp.getText();
+        String fine = txtfine.getText();
       
         
         try {
@@ -328,9 +332,9 @@ public class returnBook extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Return Book Success!");
                 
             txtmid.setText("");
-            txtmname.setText("");
+            txtmembername.setText("");
             txtbook.setText("");
-            txtrdate.setDateFormatString("");
+            txtrdate.setText("");
             txtelp.setText("");
             txtfine.setText("");
             
@@ -409,14 +413,14 @@ public class returnBook extends javax.swing.JFrame {
             }
             else
             {
-                String mname = rs.getString("m.name");
+                String membername = rs.getString("m.name");
                 String bname = rs.getString("b.bname");
-                txtmname.setText(mname.trim());
-                txtmname.setText(bname.trim());
+                txtmembername.setText(membername.trim());
+                txtbook.setText(bname.trim());
                 
                 String date = rs.getString("l.returndate");
                 
-                txtrdate.setDateFormatString(id);
+                txtrdate.setText(date);
                 
                 String elp = rs.getString("elap");
                 
@@ -527,15 +531,15 @@ public class returnBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel txtbook;
     private javax.swing.JTextField txtelp;
     private javax.swing.JTextField txtfine;
+    private javax.swing.JLabel txtmembername;
     private javax.swing.JTextField txtmid;
-    private javax.swing.JLabel txtmname;
-    private com.toedter.calendar.JDateChooser txtrdate;
+    private javax.swing.JPanel txtmname;
+    private javax.swing.JLabel txtrdate;
     // End of variables declaration//GEN-END:variables
 }
 
