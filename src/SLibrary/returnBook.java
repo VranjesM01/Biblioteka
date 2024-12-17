@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Momcilo
  */
-public class returnBook extends javax.swing.JFrame {
+public final class returnBook extends javax.swing.JFrame {
 
     /**
      * Creates new form Category
@@ -69,12 +69,13 @@ public class returnBook extends javax.swing.JFrame {
 
     
     
-    public void Return_Load(){
-        
+    
+    public void Return_Load()
+    { 
         int c;
 
         try {
-            pst = con.prepareStatement("select * returnbook");
+            pst = con.prepareStatement("select * from returnbook ");
             rs = pst.executeQuery();
             
             ResultSetMetaData rsd = rs.getMetaData();
@@ -126,7 +127,6 @@ public class returnBook extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtmid = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -140,6 +140,7 @@ public class returnBook extends javax.swing.JFrame {
         txtelp = new javax.swing.JTextField();
         txtfine = new javax.swing.JTextField();
         txtrdate = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,22 +175,13 @@ public class returnBook extends javax.swing.JFrame {
         txtmname.add(txtmid, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 174, 238, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Add");
+        jButton1.setText("Return book");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        txtmname.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 50));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Update");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        txtmname.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 130, 50));
+        txtmname.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 130, 50));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
@@ -198,16 +190,16 @@ public class returnBook extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        txtmname.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 130, 50));
+        txtmname.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 520, 130, 50));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton4.setText("Delete");
+        jButton4.setText("Delete record");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        txtmname.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 130, 50));
+        txtmname.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 130, 50));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -264,17 +256,18 @@ public class returnBook extends javax.swing.JFrame {
         txtbook.setForeground(new java.awt.Color(255, 255, 255));
         txtbook.setText("jLabel6");
         txtmname.add(txtbook, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, -1));
-
-        txtelp.setText("jTextField1");
         txtmname.add(txtelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
-
-        txtfine.setText("jTextField2");
         txtmname.add(txtfine, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 240, -1));
 
         txtrdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtrdate.setForeground(new java.awt.Color(255, 255, 255));
         txtrdate.setText("jLabel4");
         txtmname.add(txtrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel6.setText("TugaČemerJad2024");
+        txtmname.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,22 +303,18 @@ public class returnBook extends javax.swing.JFrame {
       
         
         try {
-            pst = con.prepareStatement("insert into returnbook(mid,mname,bname,returndate,elp,fine)values(?,?,?,?,?,?)");
+            pst = con.prepareStatement("insert into returnbook (mid,mname,bname,returndate,elp,fine)values(?,?,?,?,?,?)");
             pst.setString(1,mid);
             pst.setString(2, membername);          
             pst.setString(3, bookname);
             pst.setString(4,returndate);
             pst.setString(5, elpdays);
             pst.setString(6,fine);
-            
-            int k = pst.executeUpdate();
-            
-            pst = con.prepareStatement("delete from lendbook where memberid = ?");
-                    pst.setString(1, mid);
-                    pst.executeUpdate();
-          
-            
-            
+           
+            int k=pst.executeUpdate();
+            pst=con.prepareStatement("delete from lendbook where memberid = ?");
+            pst.setString  (1, mid);
+            pst.executeUpdate();
             
             if(k==1){
             
@@ -337,9 +326,8 @@ public class returnBook extends javax.swing.JFrame {
             txtrdate.setText("");
             txtelp.setText("");
             txtfine.setText("");
-            
             txtmid.requestFocus();
-            
+            Return_Load();
                 
             
                
@@ -360,24 +348,81 @@ public class returnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
- 
-     
+
+        
+        
+         DefaultTableModel d1=(DefaultTableModel)jTable1.getModel();
+        int selectIndex=jTable1.getSelectedRow();
+        
+        int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
+        
+        txtmid.setText(d1.getValueAt(selectIndex,0).toString());
+        txtmembername.setText(d1.getValueAt(selectIndex,1).toString());
+        txtbook.setText(d1.getValueAt(selectIndex,4).toString());
+        txtrdate.setText(d1.getValueAt(selectIndex,5).toString());
+        txtelp.setText(d1.getValueAt(selectIndex,5).toString());
+        txtfine.setText(d1.getValueAt(selectIndex,5).toString());
+        
+        txtmid.requestFocus();
+         
+        
         
         jButton1.setEnabled(false);//dugme add stavlja nevidljivo
+        
+     
+        
+      
         
   
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
-    
-        
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
  
+        
+        
+       DefaultTableModel d1=(DefaultTableModel)jTable1.getModel();
+        int selectIndex=jTable1.getSelectedRow();
+        
+        int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
+        
+        // TODO add your handling code here:
+       
+        
+        try {
+            pst = con.prepareStatement("delete from returnbook where id=?");
+            pst.setInt(1, id);
+           
+            
+            int k = pst.executeUpdate();
+            
+            
+            
+            if(k==1){
+            
+                JOptionPane.showMessageDialog(this,"Record deleted!");
+                
+            txtmid.setText("");
+            txtmembername.setText("");
+            txtbook.setText("");
+            txtrdate.setText("");
+            txtelp.setText("");
+            txtfine.setText("");
+            txtmid.requestFocus();
+            Return_Load();
+            jButton1.setEnabled(true); 
+               
+                               
+                
+            }
+            else
+            {
+              JOptionPane.showMessageDialog(this,"Error");
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Publisher.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
       
        
@@ -403,8 +448,8 @@ public class returnBook extends javax.swing.JFrame {
         String id = txtmid.getText();
         
         try {
-            pst = con.prepareStatement("select m.name,b.bname,l.returndate,DATEDIFF(now(),l.returndate) as elap from lendbook l JOIN member m ON l.memberid = m.id JOIN book b ON l.bookid = b.id and l.memberid=?");
-            pst.setString(1, id);
+            pst = con.prepareStatement("select m.name,b.bname,l.returndate,DATEDIFF(now(),l.returndate) as elap from lendbook l JOIN member m ON l.memberid = m.id JOIN book b ON l.bookid = b.id and l.memberid = ?");
+            pst.setString(1,id);
             rs = pst.executeQuery();
             
             if(rs.next() == false)
@@ -415,6 +460,7 @@ public class returnBook extends javax.swing.JFrame {
             {
                 String membername = rs.getString("m.name");
                 String bname = rs.getString("b.bname");
+                
                 txtmembername.setText(membername.trim());
                 txtbook.setText(bname.trim());
                 
@@ -426,17 +472,17 @@ public class returnBook extends javax.swing.JFrame {
                 
                 int elaped = Integer.parseInt(elp);
                 
-                if(elaped > 0)
-                {
-                    txtelp.setText(elp);
-                    int fine = elaped * 100;
-                    txtfine.setText(String.valueOf(fine));
-                }
-                else
-                {
-                 txtelp.setText("0");
-                 txtfine.setText("0");
-                    
+                    if(elaped > 0)
+                    {
+                        txtelp.setText(elp);
+                        int fine = elaped * 100;
+                        txtfine.setText(String.valueOf(fine));
+                    }
+                    else
+                    {
+                     txtelp.setText("0");
+                     txtfine.setText("0");
+
                 }
                 
                 
@@ -521,7 +567,6 @@ public class returnBook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -529,6 +574,7 @@ public class returnBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;

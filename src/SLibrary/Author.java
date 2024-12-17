@@ -118,6 +118,7 @@ public class Author extends javax.swing.JFrame {
         txtaddress = new java.awt.TextArea();
         jLabel4 = new javax.swing.JLabel();
         txtphone = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,6 +209,11 @@ public class Author extends javax.swing.JFrame {
         jLabel4.setText("Phone Number");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 280, -1, -1));
         jPanel1.add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 280, 238, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel5.setText("TugaČemerJad2024");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -445,6 +451,7 @@ public class Author extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

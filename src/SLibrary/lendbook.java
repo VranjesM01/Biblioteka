@@ -164,7 +164,6 @@ public class lendbook extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -216,16 +215,7 @@ public class lendbook extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        txtrdate.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 130, 50));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Update");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        txtrdate.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 130, 50));
+        txtrdate.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 130, 50));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
@@ -234,7 +224,7 @@ public class lendbook extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        txtrdate.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 130, 50));
+        txtrdate.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 130, 50));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Delete");
@@ -243,7 +233,7 @@ public class lendbook extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        txtrdate.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 130, 50));
+        txtrdate.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 130, 50));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -251,7 +241,7 @@ public class lendbook extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Member Name", "Book", "Date", "ReturnDate"
+                "ID", "Member Name", "Book", "Issue Date", "ReturnDate"
             }
         ) {
             Class[] types = new Class [] {
@@ -373,25 +363,74 @@ public class lendbook extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
  
-     
+      DefaultTableModel d1=(DefaultTableModel)jTable1.getModel();
+        int selectIndex=jTable1.getSelectedRow();
+        
+        int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
+        
+        txtid.setText(d1.getValueAt(selectIndex,0).toString());
+        txtmember.setText(d1.getValueAt(selectIndex,1).toString());
+        //txtbook.setText(d1.getValueAt(selectIndex,3).toString());
+        //txtissuedate.setText(d1.getValueAt(selectIndex,4).toString());
+        //txtreturndate.setText(d1.getValueAt(selectIndex,5).toString());
+        
+         
+        
         
         jButton1.setEnabled(false);//dugme add stavlja nevidljivo
+        
+        
+     
         
   
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
-    
-        
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
  
         
-      
+       DefaultTableModel d1=(DefaultTableModel)jTable1.getModel();
+        int selectIndex=jTable1.getSelectedRow();
+        
+        int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
+        
+        // TODO add your handling code here:
+       
+        
+        try {
+            pst = con.prepareStatement("delete from lendbook where id=?");
+            pst.setInt(1, id);
+           
+            
+            int k = pst.executeUpdate();
+            
+            
+            
+            if(k==1){
+            
+                JOptionPane.showMessageDialog(this,"Record deleted!");
+                
+               txtid.setText("");
+               txtmember.setText("");
+               txtbook.setSelectedIndex(-1);
+               txtissuedate.requestFocus();
+               txtreturndate.requestFocus();
+               Issuebook_Load();
+               jButton1.setEnabled(true); 
+               
+                               
+                
+            }
+            else
+            {
+              JOptionPane.showMessageDialog(this,"Error");
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Publisher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            
        
        
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -439,7 +478,7 @@ public class lendbook extends javax.swing.JFrame {
                 Logger.getLogger(lendbook.class.getName()).log(Level.SEVERE, null, ex);
             }
        
-        
+        jButton1.setEnabled(true);
         }
     }//GEN-LAST:event_txtidKeyPressed
 
@@ -495,7 +534,6 @@ public class lendbook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

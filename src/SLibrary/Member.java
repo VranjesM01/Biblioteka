@@ -117,6 +117,7 @@ public class Member extends javax.swing.JFrame {
         txtaddress = new java.awt.TextArea();
         jLabel4 = new javax.swing.JLabel();
         txtphone = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,7 +138,7 @@ public class Member extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Address");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 212, -1, -1));
-        jPanel1.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 174, 238, -1));
+        jPanel1.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 174, 270, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Add");
@@ -146,7 +147,7 @@ public class Member extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 374, 130, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 130, 50));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Update");
@@ -155,7 +156,7 @@ public class Member extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 374, 130, 50));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 130, 50));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
@@ -164,7 +165,7 @@ public class Member extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 435, 130, 50));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 130, 50));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Delete");
@@ -173,7 +174,7 @@ public class Member extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 435, 130, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 130, 50));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -199,14 +200,19 @@ public class Member extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 11, 514, 474));
-        jPanel1.add(txtaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 212, 238, 51));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 11, 550, 474));
+        jPanel1.add(txtaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 212, 270, 51));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Phone Number");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 280, -1, -1));
-        jPanel1.add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 280, 238, -1));
+        jPanel1.add(txtphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 280, 270, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel5.setText("TugaČemerJad2024");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -446,6 +452,7 @@ public class Member extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

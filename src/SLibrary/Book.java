@@ -259,6 +259,7 @@ public class Book extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtno = new javax.swing.JTextField();
         txtedition = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -388,6 +389,11 @@ public class Book extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, 40));
         jPanel1.add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 240, -1));
         jPanel1.add(txtedition, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 240, -1));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel9.setText("TugaČemerJad2024");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -676,6 +682,7 @@ public class Book extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
