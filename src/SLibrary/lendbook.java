@@ -177,6 +177,7 @@ public class lendbook extends javax.swing.JFrame {
         txtreturndate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Library Management System");
 
         txtrdate.setBackground(new java.awt.Color(0, 102, 102));
         txtrdate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

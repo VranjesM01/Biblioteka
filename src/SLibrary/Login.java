@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Library Management System");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -175,6 +176,26 @@ public class Login extends javax.swing.JFrame {
             
             
         }
+        
+        else if(Username.equals("cemer")&& Pass.equals("123")){
+        
+            Main m = new Main();
+            this.hide();
+            m.setVisible(true);
+            
+            
+        }
+        
+            else if(Username.equals("jad")&& Pass.equals("123")){
+        
+            Main m = new Main();
+            this.hide();
+            m.setVisible(true);
+            
+            
+        }
+      
+        
         else{
             JOptionPane.showMessageDialog(this, "UserName or Password Do not Match");
             txtusername.setText("");

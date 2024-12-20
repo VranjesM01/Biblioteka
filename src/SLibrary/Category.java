@@ -116,6 +116,7 @@ public class Category extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Library Management System");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
