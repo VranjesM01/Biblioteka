@@ -143,6 +143,7 @@ public final class returnBook extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Library Management System");
 
         txtmname.setBackground(new java.awt.Color(0, 102, 102));
         txtmname.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
