@@ -138,6 +138,7 @@ public class lendbook extends javax.swing.JFrame {
              v2.add(rs.getString("l.returndate"));
             }
             d.addRow(v2);
+            txtbook.setSelectedIndex(-1);
             
             }    
         } catch (SQLException ex) {

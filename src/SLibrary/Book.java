@@ -217,6 +217,9 @@ public class Book extends javax.swing.JFrame {
              v2.add(rs.getString("b.edition"));
             }
             d.addRow(v2);
+            txtcategory.setSelectedIndex(-1);
+            txtauthor.setSelectedIndex(-1);
+            txtpub.setSelectedIndex(-1);
             
             }    
         } catch (SQLException ex) {
@@ -243,7 +246,6 @@ public class Book extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -290,16 +292,7 @@ public class Book extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, 130, 50));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Update");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 130, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 130, 50));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
@@ -308,7 +301,7 @@ public class Book extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, 130, 50));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 130, 50));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Delete");
@@ -317,7 +310,7 @@ public class Book extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, 130, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 130, 50));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -484,14 +477,14 @@ public class Book extends javax.swing.JFrame {
         int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
         
         txtname.setText(d1.getValueAt(selectIndex,1).toString());
-       // txtcategory.setSelectedIndex(d1.getValueAt(selectIndex,2).toString());
-        //txtauthor.setText(d1.getValueAt(selectIndex,3).toString());
-        //txtpub.setText(d1.getValueAt(selectIndex,4).toString());
+        txtcategory.setSelectedItem(d1.getValueAt(selectIndex,2).toString());
+        txtauthor.setSelectedItem(d1.getValueAt(selectIndex,3).toString());
+        txtpub.setSelectedItem(d1.getValueAt(selectIndex,4).toString());
         txtcontent.setText(d1.getValueAt(selectIndex,5).toString());
         txtno.setText(d1.getValueAt(selectIndex,6).toString());
         txtedition.setText(d1.getValueAt(selectIndex,7).toString());
         
-        //fali da se doda kod za kategoriju,autor i publisher da kada se klikne na tabelu upise vrednosti u textfield
+       
          
         
         
@@ -499,69 +492,6 @@ public class Book extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
-         DefaultTableModel d1=(DefaultTableModel)jTable1.getModel();
-        int selectIndex=jTable1.getSelectedRow();
-        
-        int id= Integer.parseInt(d1.getValueAt(selectIndex,0).toString());
-        
-            
-      String bname=txtname.getText();
-      CategoryItem citem=(CategoryItem)txtcategory.getSelectedItem();
-      AuthorItem aitem=(AuthorItem)txtauthor.getSelectedItem();
-      PublisherItem pitem=(PublisherItem)txtpub.getSelectedItem();
-      
-      String contents=txtcontent.getText();
-      String pages=txtno.getText();
-      String edition=txtedition.getText();
-        
-        
-        try {
-            pst = con.prepareStatement("update book set bname=?,category=?, author=?, publisher=?, contents=?, pages=?, edition=? where id=?");
-            pst.setString(1,bname);
-            pst.setInt(2, citem.id);
-            pst.setInt(3,aitem.id);
-            pst.setInt(4,pitem.id);
-            pst.setString(5, contents);
-            pst.setString(6,pages);
-            pst.setString(7,edition);
-            
-            int k = pst.executeUpdate();
-            
-            
-            
-            if(k==1){
-            
-                JOptionPane.showMessageDialog(this,"Book Updated");
-                
-               txtname.setText("");
-                txtcategory.setSelectedIndex(-1);
-                txtauthor.setSelectedIndex(-1);
-                txtpub.setSelectedIndex(-1);
-                txtcontent.setText("");
-                txtno.setText("");
-                txtedition.setText("");
-                
-                Book_Load();
-
-                
-                
-            }
-            else
-            {
-              JOptionPane.showMessageDialog(this,"Error");
-            }
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
-        }      
-        
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
  
@@ -672,7 +602,6 @@ public class Book extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
